@@ -1,0 +1,36 @@
+.temp-top-alignment {
+  height: 20px;
+  background-color: var(--temp-color);
+  color: var(--temp-color);
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 101;
+}
+
+:root {
+  --temp-color: #0a0c10;
+
+  --background-color: #efefef;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+body {
+  font-family: "poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--temp-color);
+  background-color: var(--background-color);
+}
