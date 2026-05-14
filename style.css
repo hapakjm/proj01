@@ -1,17 +1,13 @@
-.temp-top-alignment {
-  height: 20px;
-  background-color: var(--temp-color);
-  color: var(--temp-color);
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 101;
-}
-
 :root {
-  --temp-color: #0a0c10;
-
   --background-color: #efefef;
+  --main-background-linear-gradient: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.5) 50%
+  );
+  --main-background-image: url(./assets/bg.jpg);
+  --primary-color: #ff7200;
+  --secondary-color: #fff;
 }
 
 * {
@@ -29,8 +25,109 @@ html {
 }
 
 body {
-  font-family: "poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: var(--temp-color);
   background-color: var(--background-color);
+  font-family: "poppins", sans-serif, "Segoe UI", Tahoma, Geneva, Verdana;
+  color: var(--primary-color);
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  background-image:
+    var(--main-background-linear-gradient), var(--main-background-image);
+  background-position: center;
+  background-size: cover;
+}
+
+.navbar {
+  width: 1200px;
+  height: 75px;
+  margin: auto;
+}
+
+.icon {
+  float: left;
+  width: 200px;
+  height: 70px;
+}
+
+.logo {
+  float: left;
+  padding-top: 10px;
+  padding-left: 20px;
+  font-family: Arial;
+  font-size: 35px;
+  color: var(--primary-color);
+}
+
+.menu {
+  float: left;
+  width: 400px;
+  height: 70px;
+}
+
+ul {
+  float: left;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+ul li {
+  margin-top: 27px;
+  margin-left: 62px;
+  list-style: none;
+  font-size: 14px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-family: Arial;
+  font-weight: bold;
+  transition: 0.4s ease-in-out;
+}
+
+ul li a:hover {
+  color: var(--primary-color);
+}
+
+.search {
+  float: left;
+  width: 330px;
+  margin-left: 270px;
+}
+
+.search-box {
+  float: left;
+  width: 200px;
+  height: 40px;
+  margin-top: 13px;
+  border: 1px solid var(--primary-color);
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  padding: 10px;
+  background-color: transparent;
+  font-family: "Times New Roman";
+  font-size: 16px;
+  color: var(--secondary-color);
+}
+
+.search-box {
+  outline: none;
+}
+
+.btn {
+  width: 100px;
+  height: 40px;
+  margin-top: 13px;
+  border: 2px solid var(--primary-color);
+  border-radius: 0 5px 5px 0;
+  background-color: var(--primary-color);
+  font-size: 15px;
+  color: var(--secondary-color);
+}
+
+.btn:focus {
+  outline: none;
 }
