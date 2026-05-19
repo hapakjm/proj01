@@ -1,4 +1,6 @@
 :root {
+  --temp-border: 1px solid red;
+  --temp-background-color: rgba(128, 128, 128, 0.25);
   --background-color: #efefef;
   --main-background-linear-gradient: linear-gradient(
     to top,
@@ -35,6 +37,128 @@ html {
 
 body {
   background-color: var(--background-color);
-  font-family: sans-serif, "poppins", "Segoe UI", Tahoma, Geneva, Verdana;
+  background-image:
+    var(--main-background-linear-gradient), var(--main-background-image);
+  background-position: center;
+  background-size: 100svw 150svh;
+  background-repeat: no-repeat;
+  font-family:
+    Arial, "Times New Roman", sans-serif, "poppins", "Segoe UI", Tahoma, Geneva,
+    Verdana;
   color: var(--primary-color);
+}
+
+nav {
+  width: 100svw;
+  height: 7.5svh;
+  padding: 0 20svw;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: baseline;
+  align-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "logo menu menu menu search search";
+  gap: 0.5svw;
+}
+
+nav .logo {
+  grid-area: logo;
+  justify-self: start;
+  align-self: center;
+}
+
+nav .logo h1 {
+  font-family: var(--primary-font);
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+nav .menu {
+  grid-area: menu;
+  justify-self: stretch;
+  align-self: center;
+}
+
+nav .menu ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+
+nav .menu ul li {
+  list-style: none;
+  text-align: center;
+}
+
+nav .menu ul li a {
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+nav .menu ul li a:hover {
+  color: var(--primary-color);
+}
+
+nav .menu ul li a:focus {
+  text-decoration: underline;
+  color: var(--primary-color);
+  outline: none;
+}
+
+nav .search {
+  grid-area: search;
+  justify-self: stretch;
+  align-self: center;
+  height: 100%;
+  padding-left: 2svw;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-content: center;
+}
+
+nav .search .serach-box {
+  flex-grow: 1;
+  height: 100%;
+  border: 1px solid var(--primary-color);
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  padding: 0 0.5rem;
+  background-color: transparent;
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  color: var(--secondary-color);
+  outline: none;
+}
+
+nav .search .search-btn {
+  flex-grow: 2;
+  border: 2px solid var(--primary-color);
+  border-radius: 0 5px 5px 0;
+  background-color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+nav .search .search-btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+nav .search .search-btn:focus {
+  text-decoration: underline;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  outline: none;
 }
