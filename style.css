@@ -19,6 +19,7 @@
   --primary-font: Arial;
   --secondary-font: "Times New Roman";
   --tertiary-font: sans-serif;
+  --nav-height: 7.5svh;
 }
 
 * {
@@ -50,8 +51,11 @@ body {
 
 nav {
   width: 100svw;
-  height: 7.5svh;
+  min-height: var(--nav-height);
   padding: 0 20svw;
+  position: fixed;
+  top: 0;
+  z-index: 999;
   display: grid;
   grid-auto-flow: column;
   justify-content: baseline;
@@ -80,6 +84,7 @@ nav .menu {
   grid-area: menu;
   justify-self: stretch;
   align-self: center;
+  padding-right: 2svw;
 }
 
 nav .menu ul {
@@ -120,7 +125,6 @@ nav .search {
   justify-self: stretch;
   align-self: center;
   height: 100%;
-  padding-left: 2svw;
   display: flex;
   flex-direction: row;
   justify-content: end;
@@ -142,10 +146,11 @@ nav .search .serach-box {
 }
 
 nav .search .search-btn {
-  flex-grow: 2;
+  flex-grow: 1;
   border: 2px solid var(--primary-color);
   border-radius: 0 5px 5px 0;
   background-color: var(--primary-color);
+  font-family: var(--primary-font);
   font-size: 1rem;
   color: var(--secondary-color);
   letter-spacing: 1px;
@@ -159,8 +164,87 @@ nav .search .search-btn:hover {
 }
 
 nav .search .search-btn:focus {
+  border: 3px solid var(--primary-color);
   text-decoration: underline;
   background-color: var(--secondary-color);
   color: var(--primary-color);
   outline: none;
+}
+
+main {
+  width: 100svw;
+  min-height: calc(100svh - var(--nav-height));
+  margin-top: var(--nav-height);
+  padding: 10svh 20svw 0 20svw;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: baseline;
+  align-content: start;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "content content content none account account";
+  gap: 0.5svw;
+
+  border: var(--temp-border);
+}
+
+main .content {
+  grid-area: content;
+  justify-self: self-start;
+  align-self: self-start;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+main .content h1 {
+  font-family: var(--secondary-font);
+  font-size: 3rem;
+  color: var(--secondary-color);
+  letter-spacing: 2px;
+}
+
+main .content h1 span {
+  font-size: 3.5rem;
+  color: var(--primary-color);
+}
+
+main .content p {
+  font-family: var(--primary-font);
+  color: var(--secondary-color);
+  letter-spacing: 1px;
+  line-height: 30px;
+}
+
+main .content button {
+  width: 160px;
+  height: 40px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--tertiary-color);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+main .content button:hover {
+  background-color: var(--secondary-color);
+}
+
+main .content button:focus {
+  border: 3px solid var(--primary-color);
+  background-color: var(--secondary-color);
+  text-decoration: underline;
+  outline: none;
+}
+
+main .account {
+  grid-area: account;
+  justify-self: self-start;
+  align-self: self-start;
+  border: var(--temp-border);
 }
